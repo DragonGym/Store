@@ -11,6 +11,31 @@ body{
     background-color: #050505;
     font-family: "Montserrat", sans-serif;
     color: white;
+    
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
 }
 /* Start Header */
 header{
@@ -94,9 +119,9 @@ header{
     
 }
 /* End Header */
-/* .home{
-    display:none;
-} */
+.home{
+    display:block;
+}
 /* Start Landing */
 .hero {
     position: relative;
@@ -138,7 +163,7 @@ header{
         #050505 0%,
         #050505 28%,
         rgba(5, 5, 5, 0.95) 40%,
-        rgba(5, 5, 5, 0.45) 65%,
+        rgba(5, 5, 5, 0.45) 95%,
         rgba(5, 5, 5, 0.1) 100%
     );
 
