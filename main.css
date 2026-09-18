@@ -100,7 +100,7 @@ header{
         height: 55px;
     }
    .links a{
-        font-size: 10px;
+        font-size: 11px;
         padding: 0;
         margin: 0;
         margin-right: 9px;
@@ -185,7 +185,7 @@ header{
 
 /* العنوان الصغير */
 .hero-small-title {
-    color: #FF1E2D;
+    color: var(--main-color);
 
     font-size: 17px;
     font-weight: 700;
@@ -211,7 +211,7 @@ header{
 .hero h1 span {
     display: block;
     font-size: 53px;
-    color: #FF1E2D;
+    color: var(--main-color);
 }
 
 
@@ -432,7 +432,225 @@ color: var(--main-color);
     top: -10px;
     box-shadow: 0 0 10px var(--main-color);
 }
-@media (max-width: 768px){
+
+/* ============================= */
+ /* End Box */
+ /* Start About US */
+ /* ==========================================================
+   About US  +  Why Choose Dragon Gym
+   مبني على نفس الـ classes اللي في الـ CSS بتاعك:
+   .about-us > .text + .boxes > .boxe
+   .choose   > .text1 + .boxses > .boxse > i + .text > h3 + p
+   ========================================================== */
+
+/* ألوان مساعدة مشتقة من --main-color (مفيش لون جديد) */
+.about-us,
+.choose{
+    --glow-soft:   color-mix(in srgb, var(--main-color) 18%, transparent);
+    --glow-strong: color-mix(in srgb, var(--main-color) 40%, transparent);
+    --tint:        color-mix(in srgb, var(--main-color) 14%, transparent);
+    --card-border: color-mix(in srgb, var(--main-color) 32%, transparent);
+}
+
+.about-us{
+    display: none;
+}
+
+/* ---------- العنوان ---------- */
+.about-us .text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.about-us .text h2{
+    margin-top: 20px;
+    font-size: 40px;
+    font-style: italic;
+    position: relative;
+}
+.about-us .text h2 span{
+    color: var(--main-color);
+}
+.about-us .text h2::before{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 4px;
+    background-color: var(--main-color);
+    border-radius: 48%;
+    top: 105%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.about-us .text p{
+    margin-top: 22px;
+    color: #d7c7c7;
+}
+
+/* ---------- كروت Mission / Vision / Values ---------- */
+.about-us .boxes{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+    align-items: stretch;
+}
+.about-us .boxe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 20px 25px 25px;
+    background: linear-gradient(160deg, #151515, #0a0a0a);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    box-shadow: 0 0 16px var(--glow-soft);
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.about-us .boxe:hover{
+    transform: translateY(-6px);
+    border-color: var(--main-color);
+    box-shadow: 0 10px 30px var(--glow-strong);
+}
+.about-us .boxe i{
+    width: 80px;
+    height: 80px;
+    display: grid;
+    place-items: center;
+    margin: 20px 0 30px;
+    font-size: 36px;
+    color: var(--main-color);
+    background: var(--tint);
+    border-radius: 50%;
+}
+.about-us .boxe h2{
+    margin-bottom: 23px;
+    position: relative;
+}
+.about-us .boxe h2::before{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 4px;
+    background-color: var(--main-color);
+    border-radius: 48%;
+    top: 140%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.about-us .boxe p{
+    margin: 10px 0;
+    color: #d7c7c7;
+    font-size: 15px;
+    line-height: 1.7;
+    letter-spacing: 0.4px;
+    text-align: center;
+}
+
+/* قايمة الـ Values (اختياري - شوف تعديل الـ HTML) */
+.about-us .boxe .values-list{
+    list-style: none;
+    margin: 10px 0;
+    padding: 0;
+    text-align: left;
+}
+.about-us .boxe .values-list li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: #d7c7c7;
+    font-size: 15px;
+}
+.about-us .boxe .values-list li::before{
+    content: "✔";
+    color: var(--main-color);
+    font-size: 13px;
+}
+
+/* ---------- Why Choose ---------- */
+.choose .text1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    font-style: italic;
+}
+.choose .text1 span{
+    color: var(--main-color);
+    margin-left: 12px;
+}
+.choose .boxses{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    align-items: stretch;
+}
+.choose .boxse{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 18px;
+    background-color: #0d0d0d;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    box-shadow: 0 0 14px var(--glow-soft);
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.choose .boxse:hover{
+    transform: translateY(-5px);
+    border-color: var(--main-color);
+    box-shadow: 0 8px 24px var(--glow-strong);
+}
+.choose .boxse i{
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    font-size: 22px;
+    color: var(--main-color);
+    background: var(--tint);
+    border-radius: 12px;
+}
+.choose .boxse .text{
+    flex: 1;
+    display: block;
+    margin: 0;
+    text-align: left;
+}
+.choose .boxse h3{
+    margin: 0 0 6px;
+    line-height: 1.25;
+}
+.choose .boxse p{
+    margin: 0;
+    color: #999;
+    font-size: 15px;
+    line-height: 1.5;
+}
+/* End About US */
+
+
+/* ==========================================================
+   Responsive
+   ملحوظة: سيب قواعد الموبايل بتاعت باقي الصفحات (.boxs, .box,
+   .box .products3, .product3.active) في ملفك زي ما هي.
+   ========================================================== */
+
+/* تابلت */
+@media (max-width: 992px){
+    .choose .boxses{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+  @media (max-width: 768px){
     .boxs{
         grid-template-columns: repeat(1, 1fr);
         margin-top: 20px;
@@ -450,6 +668,34 @@ color: var(--main-color);
     .product3.active{
     top: 0;
 }
+.about-us .boxes{
+    grid-template-columns: repeat(1,1fr);
+
 }
-/* ============================= */
- /* End Box */
+.about-us .text p{
+    margin: 15px;
+}
+.about-us .boxe{
+    margin: 10px 20px;
+}
+.choose .boxses{
+    grid-template-columns: repeat(2 , 1fr);
+    gap: 8px;
+    padding: 0 5px;
+}
+.choose .boxse{
+   padding: 10px 5px; 
+   box-sizing: border-box;
+   word-break: break-word;
+   flex-direction: column;
+}
+.choose h2{
+    font-size: 14px;
+}
+.choose h3{
+    font-size: 14px;
+}
+.choose p{
+    font-size: 12px;
+}
+}
