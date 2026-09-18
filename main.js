@@ -9,6 +9,29 @@ let aboutbtn = document.getElementById("About-us")
 let aboutsecsion = document.querySelector(".about-us")
 
 
+// =================bar===================//
+
+let icon = document.querySelector(".bar1")
+
+let menu = document.querySelector(".menu-bar")
+
+let close = document.querySelector(".close-btn")
+
+icon.onclick = function(){
+
+    menu.style.display = "block"
+}
+close.onclick = function(){
+
+    menu.style.display = "none"
+}
+
+
+// =================bar===================//
+
+
+
+
 clothes.addEventListener("click", function() {
 
     home.style.display = "none";
