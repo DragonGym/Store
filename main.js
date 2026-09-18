@@ -8,29 +8,7 @@ let aboutbtn = document.getElementById("About-us")
 
 let aboutsecsion = document.querySelector(".about-us")
 
-
-// =================bar===================//
-
-let icon = document.querySelector(".bar1")
-
-let menu = document.querySelector(".menu-bar")
-
-let close = document.querySelector(".close-btn")
-
-icon.onclick = function(){
-
-    menu.style.display = "block"
-}
-close.onclick = function(){
-
-    menu.style.display = "none"
-}
-
-
-// =================bar===================//
-
-
-
+let clothesViewBtn = document.querySelector("#clothes-view")
 
 clothes.addEventListener("click", function() {
 
@@ -49,3 +27,25 @@ aboutbtn.addEventListener("click",function(){
     home.style.display="none"
     aboutsecsion.style.display="block"
 })
+clothesViewBtn.addEventListener("click",function(){
+     home.style.display = "none";
+    aboutsecsion.style.display="none";
+})
+
+// =================bar===================//
+
+let icon = document.querySelector(".bar1")
+
+let menu = document.querySelector(".menu-bar")
+
+let close = document.querySelector(".close-btn")
+
+icon.onclick = function(){
+
+    menu.style.display = "block"
+}
+close.onclick = function(){
+
+    menu.style.display = "none"
+}
+// =================bar===================//
