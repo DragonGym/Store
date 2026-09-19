@@ -18,12 +18,21 @@ let supBtn1 =document.querySelector("#sup-btn1")
 
 let supSec = document.querySelector("#sup-sec")
 
+let salBtn = document.querySelector("#sal-btn")
+
+let salSec = document.querySelector("#sal-sec")
+
+
 clothes.addEventListener("click", function() {
 
     clothesSection.style.display="block"
     home.style.display = "none";
     aboutsecsion.style.display="none";
     supSec.style.display="none"
+    salSec.style.display="none"
+    menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
+    window.scrollTo(0, 0)
+
 });
 
 homeBtn.addEventListener("click", function() {
@@ -32,6 +41,9 @@ homeBtn.addEventListener("click", function() {
     aboutsecsion.style.display="none";
     clothesSection.style.display="none";
     supSec.style.display="none"
+    salSec.style.display="none"
+    menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
+    window.scrollTo(0, 0)
 });
 
 aboutbtn.addEventListener("click",function(){
@@ -39,24 +51,45 @@ aboutbtn.addEventListener("click",function(){
     home.style.display="none"
     clothesSection.style.display="none"
     supSec.style.display="none"
+    salSec.style.display="none"
+    menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
+    window.scrollTo(0, 0)
 })
 clothesViewBtn.addEventListener("click",function(){
     clothesSection.style.display="block"
      home.style.display = "none";
     aboutsecsion.style.display="none";
     supSec.style.display="none"
+    salSec.style.display="none"
+    menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
+    window.scrollTo(0, 0)
 })
 supBtn.addEventListener("click",function(){
     supSec.style.display="block"
     aboutsecsion.style.display="none"
     home.style.display="none"
     clothesSection.style.display="none"
+    salSec.style.display="none"
+    menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
+    window.scrollTo(0, 0)
 })
 supBtn1.addEventListener("click",function(){
     supSec.style.display="block"
     aboutsecsion.style.display="none"
     home.style.display="none"
     clothesSection.style.display="none"
+    salSec.style.display="none"
+    menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
+    window.scrollTo(0, 0)
+})
+salBtn.addEventListener("click",function(){
+      supSec.style.display="none"
+    aboutsecsion.style.display="none"
+    home.style.display="none"
+    clothesSection.style.display="none"
+    salSec.style.display="block"
+    menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
+    window.scrollTo(0, 0)
 })
 
 // =================bar===================//
@@ -159,3 +192,36 @@ renderProducts(products);
 })();
 
 // ================== Supplements products ==================
+
+// ================== Membership plans ==================
+
+// متغلف في function عشان أسماء المتغيرات ماتتعارضش مع باقي الملفات
+(function () {
+  // كل خطة = object واحد. featured: true = الكارت المميز (المرفوع والمضيء)
+  const plans = [
+    { name: "Cardio",      icon: "fa-solid fa-person-running", description: "Access to cardio equipment & group classes.", price: 400, period: "Monthly", featured: false },
+    { name: "Iron",        icon: "fa-solid fa-dumbbell",       description: "Access to all gym equipment & weight area",   price: 350, period: "Monthly", featured: true  },
+    { name: "Full Access", icon: "fa-regular fa-star",         description: "All gym area & all group classes & more",    price: 800, period: "Monthly", featured: false },
+  ];
+
+  const membershipList = document.querySelector("#membership-list");
+
+  function renderPlans(items) {
+    membershipList.innerHTML = items.map(p => `
+      <article class="membership-card ${p.featured ? "featured" : ""}">
+        <i class="membership-icon ${p.icon}" aria-hidden="true"></i>
+        <h3>${p.name}</h3>
+        <p>${p.description}</p>
+        <div class="membership-price">
+          <span class="cur">EGP</span>
+          <span class="amount">${p.price.toLocaleString("en-US")}</span>
+        </div>
+        <span class="membership-period">/${p.period}</span>
+      </article>
+    `).join("");
+  }
+
+  renderPlans(plans);
+})();
+
+// ================== Membership plans ==================

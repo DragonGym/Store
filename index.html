@@ -58,7 +58,7 @@
     </a>
 
 
-    <a href="#SALARY" class="menu-link">
+    <a href="#SALARY" class="menu-link" id="sal-btn">
         <div class="menu-icon">
             <i class="fa-solid fa-wallet"></i>
         </div>
@@ -290,6 +290,52 @@
   <div class="supplements-grid" id="supplements-list"></div>
 </section>
      <!-- End Supplements -->
+      <!-- Start Salary -->
+       <div class="salary" id="sal-sec">
+        <section class="membership-page">
+  <div class="membership-head">
+    <h2>MEMBERSHIP <span>PRICING</span></h2>
+    <p>Choose the plan that fits you</p>
+  </div>
+ 
+  <!-- الكروت بتتولد هنا من الـ JS -->
+  <div class="membership-grid" id="membership-list"></div>
+</section>
+       </div>
+      <!-- End Salary -->
+       <!-- Start Product Details -->
+<section class="product-details" id="details-sec">
+  <button class="details-back" id="details-back" type="button">
+    <i class="fa-solid fa-arrow-left"></i> Back
+  </button>
+
+  <div class="details-wrap">
+    <div class="details-img">
+      <img id="d-img" alt="">
+    </div>
+
+    <div class="details-info">
+      <span class="details-cat" id="d-cat"></span>
+      <h2 id="d-name"></h2>
+      <p class="details-text" id="d-details"></p>
+      <div class="details-price" id="d-price"></div>
+
+      <div class="how-to-buy">
+        <h3>How to buy</h3>
+        <ol>
+          <li>Tap "Order via WhatsApp" and a message with the product details will be ready for you.</li>
+          <li>Confirm the details and delivery or pick-up with our team.</li>
+          <li>Pay and receive your order.</li>
+        </ol>
+      </div>
+
+      <a class="details-whatsapp" id="d-whatsapp" href="#" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+<!-- End Product Details -->
     </div>
     <!-- End Container -->
      <!-- Start Footer -->
@@ -324,11 +370,11 @@
       <nav class="footer-links" aria-label="Footer">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="#HOME" id="home-btn">Home</a></li>
-          <li><a href="#CLOTHES" id="CLOTHES1">Clothes</a></li>
-          <li><a href="#SUPPLEMENTS">Supplements</a></li>
-          <li><a href="#SALARY">SALARY</a></li>
-          <li><a href="#ABOUT US" id="About-us">About Us</a></li>
+          <li><a href="#HOME" data-go="home">Home</a></li>
+          <li><a href="#CLOTHES" data-go="clothes">Clothes</a></li>
+          <li><a href="#SUPPLEMENTS" data-go="supplements">Supplements</a></li>
+          <li><a href="#SALARY" data-go="salary">SALARY</a></li>
+          <li><a href="#ABOUT US" data-go="about us" id="About-us">About Us</a></li>
         </ul>
       </nav>
       <!-- العنوان -->
