@@ -596,8 +596,13 @@ header{
         height: 250px;
     }
 
-    .hero-image {
-       display: none;
+    .hero-image {   
+            position: absolute;
+    right: 0;
+    top: -28px;
+    width: 72%;
+    height: 100%;
+    z-index: 1;
     }
 
     .hero-content {
