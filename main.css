@@ -1155,6 +1155,160 @@ color: var(--main-color);
     }
 }
 /* End clothes */
+/* start Supplements */
+/* ==========================================================
+   Supplements page
+   نفس تصميم صفحة الـ Clothes، والـ classes بادئة بـ supplements-
+   ========================================================== */
+
+/* ---------- العنوان ---------- */
+#sup-sec{
+    display:none
+}
+.supplements-head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+.supplements-head h2{
+    position: relative;
+    font-size: 40px;
+    font-style: italic;
+}
+.supplements-head h2 span{
+    color: var(--main-color);
+}
+.supplements-head h2::before{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 4px;
+    background-color: var(--main-color);
+    border-radius: 48%;
+    top: 105%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.supplements-head p{
+    margin-top: 22px;
+    color: #d7c7c7;
+}
+
+/* ---------- الـ Grid: 4 كروت في الصف ---------- */
+.supplements-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 40px 0;
+}
+
+/* ---------- الكارت ---------- */
+.supplements-card{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #0d0d0d;
+    border: 1px solid color-mix(in srgb, var(--main-color) 30%, transparent);
+    border-radius: 12px;
+    box-shadow: 0 0 14px color-mix(in srgb, var(--main-color) 15%, transparent);
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.supplements-card:hover{
+    transform: translateY(-6px);
+    border-color: var(--main-color);
+    box-shadow: 0 10px 30px color-mix(in srgb, var(--main-color) 35%, transparent);
+}
+
+/* الصورة: خلفية بيضا و contain عشان علب المكملات ماتتقصش */
+.supplements-img{
+    aspect-ratio: 1 / 1.15;
+    overflow: hidden;
+    background-color: #fff;
+}
+.supplements-img img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    object-fit: contain;
+    transition: transform .4s ease;
+}
+.supplements-card:hover .supplements-img img{
+    transform: scale(1.05);
+}
+
+/* المعلومات */
+.supplements-info{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 14px;
+}
+.supplements-info h3{
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+.supplements-info p{
+    margin-bottom: 12px;
+    color: #999;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.supplements-info .price{
+    margin-top: auto;   /* السعر دايماً في آخر الكارت */
+    color: var(--main-color);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+@media (max-width: 992px){
+    .supplements-grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 700px){
+    .supplements-head h2{
+        font-size: 30px;
+    }
+    .supplements-grid{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .supplements-info{
+        padding: 10px;
+    }
+    .supplements-info h3{
+        font-size: 14px;
+    }
+    .supplements-info p{
+        font-size: 12px;
+    }
+}
+@media (max-width: 400px){
+    .supplements-grid{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .supplements-card,
+    .supplements-img img{
+        transition: none;
+    }
+    .supplements-card:hover{
+        transform: none;
+    }
+    .supplements-card:hover .supplements-img img{
+        transform: none;
+    }
+}
+/* End Supplements */
 
 /* ==========================================================
    Responsive
