@@ -1136,11 +1136,11 @@ color: var(--main-color);
         font-size: 12px;
     }
 }
-@media (max-width: 400px){
+/* @media (max-width: 400px){
     .clothes-grid{
         grid-template-columns: 1fr;
     }
-}
+} */
 
 @media (prefers-reduced-motion: reduce){
     .clothes-card,
@@ -1290,11 +1290,11 @@ color: var(--main-color);
         font-size: 12px;
     }
 }
-@media (max-width: 400px){
+/* @media (max-width: 400px){
     .supplements-grid{
         grid-template-columns: 1fr;
     }
-}
+} */
 
 @media (prefers-reduced-motion: reduce){
     .supplements-card,
