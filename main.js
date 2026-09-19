@@ -48,4 +48,13 @@ close.onclick = function(){
 
     menu.style.display = "none"
 }
+document.addEventListener("click", function(e){
+    // لو المنيو مش مفتوحة مفيش حاجة تتعمل
+    if (menu.style.display !== "block") return
+
+    // لو الضغطة جوه المنيو أو على أيقونة الهامبورجر، سيبها
+    if (menu.contains(e.target) || icon.contains(e.target)) return
+
+    menu.style.display = "none"
+})
 // =================bar===================//
