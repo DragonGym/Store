@@ -10,26 +10,33 @@ let aboutsecsion = document.querySelector(".about-us")
 
 let clothesViewBtn = document.querySelector("#clothes-view")
 
+let clothesSection = document.querySelector(".clothes")
+
 clothes.addEventListener("click", function() {
 
+    clothesSection.style.display="block"
     home.style.display = "none";
     aboutsecsion.style.display="none";
+
 });
 
 homeBtn.addEventListener("click", function() {
 
     home.style.display = "block";
     aboutsecsion.style.display="none";
+    clothesSection.style.display="none";
 
 });
 
 aboutbtn.addEventListener("click",function(){
-    home.style.display="none"
     aboutsecsion.style.display="block"
+    home.style.display="none"
+    clothesSection.style.display="none"
 })
 clothesViewBtn.addEventListener("click",function(){
      home.style.display = "none";
     aboutsecsion.style.display="none";
+    clothesSection.style.display="block"
 })
 
 // =================bar===================//
@@ -57,4 +64,40 @@ document.addEventListener("click", function(e){
 
     menu.style.display = "none"
 })
+
 // =================bar===================//
+
+// ================== Clothes products ==================
+
+// كل منتج = object واحد. عايز منتج جديد؟ ضيف سطر جديد هنا وخلاص.
+const products = [
+  { name: "Dragon T-Shirt",      image: "IMGS/clothes.webp",  details: "Breathable fabric, slim fit",         price: 500 },
+  { name: "Dragon T-Shirt",      image: "IMGS/clothes1.webp",  details: "Breathable fabric, regular fit",      price: 500 },
+  { name: "Training Shorts",     image: "IMGS/clothes.webp",        details: "Lightweight, quick dry",              price: 350 },
+  { name: "Dragon Hoodie",       image: "IMGS/clothes1.webp",        details: "Soft fleece, warm and comfortable",   price: 900 },
+  { name: "Tank Top",            image: "IMGS/clothes.webp",          details: "Sleeveless, ideal for heavy lifting", price: 300 },
+  { name: "Compression Shirt",   image: "IMGS/clothes1.webp",   details: "Stretch fit, supports movement",      price: 650 },
+  { name: "Joggers",             image: "IMGS/clothes.webp",       details: "Tapered fit with zip pockets",        price: 750 },
+  { name: "Gym Cap",             image: "IMGS/clothes1.webp",           details: "Adjustable strap, one size",          price: 200 },
+];
+
+const list = document.querySelector("#clothes-list");
+
+function renderProducts(items) {
+  list.innerHTML = items.map(p => `
+    <article class="clothes-card">
+      <div class="clothes-img">
+        <img src="${p.image}" alt="${p.name}" loading="lazy">
+      </div>
+      <div class="clothes-info">
+        <h3>${p.name}</h3>
+        <p>${p.details}</p>
+        <span class="price">EGP ${p.price.toLocaleString("en-US")}</span>
+      </div>
+    </article>
+  `).join("");
+}
+
+renderProducts(products);
+
+// ================== Clothes products ==================

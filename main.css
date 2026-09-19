@@ -1003,7 +1003,158 @@ color: var(--main-color);
     line-height: 1.5;
 }
 /* End About US */
+/* Start clothes */
+/* ==========================================================
+   Clothes page
+   الـ classes بادئة بـ clothes- عشان متتعارضش مع classes موقعك
+   ========================================================== */
 
+/* ---------- العنوان ---------- */
+.clothes{
+    display: none;
+}
+.clothes-head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+.clothes-head h2{
+    position: relative;
+    font-size: 40px;
+    font-style: italic;
+}
+.clothes-head h2 span{
+    color: var(--main-color);
+}
+.clothes-head h2::before{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 4px;
+    background-color: var(--main-color);
+    border-radius: 48%;
+    top: 105%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.clothes-head p{
+    margin-top: 22px;
+    color: #d7c7c7;
+}
+
+/* ---------- الـ Grid: 4 كروت في الصف ---------- */
+.clothes-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 40px 0;
+}
+
+/* ---------- الكارت ---------- */
+.clothes-card{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #0d0d0d;
+    border: 1px solid color-mix(in srgb, var(--main-color) 30%, transparent);
+    border-radius: 12px;
+    box-shadow: 0 0 14px color-mix(in srgb, var(--main-color) 15%, transparent);
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.clothes-card:hover{
+    transform: translateY(-6px);
+    border-color: var(--main-color);
+    box-shadow: 0 10px 30px color-mix(in srgb, var(--main-color) 35%, transparent);
+}
+
+/* الصورة: كل الصور بنفس المقاس مهما اختلف حجمها الأصلي */
+.clothes-img{
+    aspect-ratio: 1 / 1.15;
+    overflow: hidden;
+    background-color: #e9e4dc;
+}
+.clothes-img img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+}
+.clothes-card:hover .clothes-img img{
+    transform: scale(1.05);
+}
+
+/* المعلومات */
+.clothes-info{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 14px;
+}
+.clothes-info h3{
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+.clothes-info p{
+    margin-bottom: 12px;
+    color: #999;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.clothes-info .price{
+    margin-top: auto;   /* السعر دايماً في آخر الكارت */
+    color: var(--main-color);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+@media (max-width: 992px){
+    .clothes-grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 700px){
+    .clothes-head h2{
+        font-size: 30px;
+    }
+    .clothes-grid{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .clothes-info{
+        padding: 10px;
+    }
+    .clothes-info h3{
+        font-size: 14px;
+    }
+    .clothes-info p{
+        font-size: 12px;
+    }
+}
+@media (max-width: 400px){
+    .clothes-grid{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .clothes-card,
+    .clothes-img img{
+        transition: none;
+    }
+    .clothes-card:hover{
+        transform: none;
+    }
+    .clothes-card:hover .clothes-img img{
+        transform: none;
+    }
+}
+/* End clothes */
 
 /* ==========================================================
    Responsive
