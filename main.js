@@ -22,76 +22,114 @@ let salBtn = document.querySelector("#sal-btn")
 
 let salSec = document.querySelector("#sal-sec")
 
+let buySec = document.querySelector("#buy-sec")
 
-clothes.addEventListener("click", function() {
+let salbtn1 = document.querySelector("#sal-btn1")
 
-    clothesSection.style.display="block"
-    home.style.display = "none";
-    aboutsecsion.style.display="none";
-    supSec.style.display="none"
-    salSec.style.display="none"
-    menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
+
+// clothes.addEventListener("click", function() {
+
+//     clothesSection.style.display="block"
+//     home.style.display = "none";
+//     aboutsecsion.style.display="none";
+//     supSec.style.display="none"
+//     salSec.style.display="none"
+//     menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
+//     window.scrollTo(0, 0)
+
+// });
+
+// homeBtn.addEventListener("click", function() {
+
+//     home.style.display = "block";
+//     aboutsecsion.style.display="none";
+//     clothesSection.style.display="none";
+//     supSec.style.display="none"
+//     salSec.style.display="none"
+//     menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
+//     window.scrollTo(0, 0)
+// });
+
+// aboutbtn.addEventListener("click",function(){
+//     aboutsecsion.style.display="block"
+//     home.style.display="none"
+//     clothesSection.style.display="none"
+//     supSec.style.display="none"
+//     salSec.style.display="none"
+//     menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
+//     window.scrollTo(0, 0)
+// })
+// clothesViewBtn.addEventListener("click",function(){
+//     clothesSection.style.display="block"
+//      home.style.display = "none";
+//     aboutsecsion.style.display="none";
+//     supSec.style.display="none"
+//     salSec.style.display="none"
+//     menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
+//     window.scrollTo(0, 0)
+// })
+// supBtn.addEventListener("click",function(){
+//     supSec.style.display="block"
+//     aboutsecsion.style.display="none"
+//     home.style.display="none"
+//     clothesSection.style.display="none"
+//     salSec.style.display="none"
+//     menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
+//     window.scrollTo(0, 0)
+// })
+// supBtn1.addEventListener("click",function(){
+//     supSec.style.display="block"
+//     aboutsecsion.style.display="none"
+//     home.style.display="none"
+//     clothesSection.style.display="none"
+//     salSec.style.display="none"
+//     menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
+//     window.scrollTo(0, 0)
+// })
+// salBtn.addEventListener("click",function(){
+//       supSec.style.display="none"
+//     aboutsecsion.style.display="none"
+//     home.style.display="none"
+//     clothesSection.style.display="none"
+//     salSec.style.display="block"
+//     menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
+//     window.scrollTo(0, 0)
+// })
+
+// const goMap = { home: home, clothes: clothesSection, supplements: supSec, salary: salSec, about: aboutsecsion }
+// document.querySelectorAll("[data-go]").forEach(link => {
+//     link.addEventListener("click", () => showSection(goMap[link.dataset.go]))
+// })
+
+const sections = [home, aboutsecsion, clothesSection, supSec, salSec, buySec].filter(Boolean)
+
+function showSection(sec) {
+    sections.forEach(s => s.style.display = "none")
+    sec.style.display = "block"
+    menu.style.display = "none"
     window.scrollTo(0, 0)
+}
 
-});
+// أزرار المنيو وأزرار View More في الرئيسية
+clothes.addEventListener("click", () => showSection(clothesSection))
+homeBtn.addEventListener("click", () => showSection(home))
+aboutbtn.addEventListener("click", () => showSection(aboutsecsion))
+clothesViewBtn.addEventListener("click", () => showSection(clothesSection))
+supBtn.addEventListener("click", () => showSection(supSec))
+supBtn1.addEventListener("click", () => showSection(supSec))
+salBtn.addEventListener("click", () => showSection(salSec))
+salbtn1.addEventListener("click",() => showSection(salSec))
 
-homeBtn.addEventListener("click", function() {
 
-    home.style.display = "block";
-    aboutsecsion.style.display="none";
-    clothesSection.style.display="none";
-    supSec.style.display="none"
-    salSec.style.display="none"
-    menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
-    window.scrollTo(0, 0)
-});
+// لينكات الفوتر
+const goMap = { home: home, clothes: clothesSection, supplements: supSec, salary: salSec, about: aboutsecsion }
 
-aboutbtn.addEventListener("click",function(){
-    aboutsecsion.style.display="block"
-    home.style.display="none"
-    clothesSection.style.display="none"
-    supSec.style.display="none"
-    salSec.style.display="none"
-    menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
-    window.scrollTo(0, 0)
+document.querySelectorAll("[data-go]").forEach(link => {
+    link.addEventListener("click", function (e) {
+        e.preventDefault()
+        showSection(goMap[link.dataset.go])
+    })
 })
-clothesViewBtn.addEventListener("click",function(){
-    clothesSection.style.display="block"
-     home.style.display = "none";
-    aboutsecsion.style.display="none";
-    supSec.style.display="none"
-    salSec.style.display="none"
-    menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
-    window.scrollTo(0, 0)
-})
-supBtn.addEventListener("click",function(){
-    supSec.style.display="block"
-    aboutsecsion.style.display="none"
-    home.style.display="none"
-    clothesSection.style.display="none"
-    salSec.style.display="none"
-    menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
-    window.scrollTo(0, 0)
-})
-supBtn1.addEventListener("click",function(){
-    supSec.style.display="block"
-    aboutsecsion.style.display="none"
-    home.style.display="none"
-    clothesSection.style.display="none"
-    salSec.style.display="none"
-    menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
-    window.scrollTo(0, 0)
-})
-salBtn.addEventListener("click",function(){
-      supSec.style.display="none"
-    aboutsecsion.style.display="none"
-    home.style.display="none"
-    clothesSection.style.display="none"
-    salSec.style.display="block"
-    menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
-    window.scrollTo(0, 0)
-})
-
 // =================bar===================//
 
 let icon = document.querySelector(".bar1")
@@ -133,7 +171,7 @@ const products = [
   { name: "Joggers",             image: "IMGS/clothes.webp",       details: "Tapered fit with zip pockets",        price: 750 },
   { name: "Gym Cap",             image: "IMGS/clothes1.webp",           details: "Adjustable strap, one size",          price: 200 },
 ];
-
+products.forEach((p, i) => { p.id = "c" + (i + 1); p.category = "clothes" })
 const list = document.querySelector("#clothes-list");
 
 function renderProducts(items) {
@@ -146,6 +184,7 @@ function renderProducts(items) {
         <h3>${p.name}</h3>
         <p>${p.details}</p>
         <span class="price">EGP ${p.price.toLocaleString("en-US")}</span>
+         <button class="buy-btn" type="button" data-id="${p.id}">Buy Now</button>
       </div>
     </article>
   `).join("");
@@ -158,7 +197,7 @@ renderProducts(products);
 // ================== Supplements products ==================
 
 // الكود متغلف في function عشان أسماء المتغيرات ماتتعارضش مع clothes.js
-(function () {
+// (function () {
   // كل منتج = object واحد. عايز منتج جديد؟ ضيف سطر جديد هنا وخلاص.
   const supplements = [
     { name: "Whey Protein",        image: "IMGS/cookiescream.jpg.webp",        details: "Fast-absorbing protein for muscle recovery", price: 3000 },
@@ -170,7 +209,7 @@ renderProducts(products);
     { name: "Omega-3",             image: "IMGS/cookiescream.jpg.webp",     details: "Daily support for heart and joints",         price: 600 },
     { name: "Multivitamin",        image: "IMGS/Crea-Power-Creatine-400-g-80-Servings_1.jpg.webp",details: "Daily vitamins and minerals",                price: 450 },
   ];
-
+supplements.forEach((p, i) => { p.id = "s" + (i + 1); p.category = "supplements" })
   const supplementsList = document.querySelector("#supplements-list");
 
   function renderSupplements(items) {
@@ -183,13 +222,14 @@ renderProducts(products);
           <h3>${p.name}</h3>
           <p>${p.details}</p>
           <span class="price">EGP ${p.price.toLocaleString("en-US")}</span>
+            <button class="buy-btn" type="button" data-id="${p.id}">Buy Now</button>
         </div>
       </article>
     `).join("");
   }
 
   renderSupplements(supplements);
-})();
+// })();
 
 // ================== Supplements products ==================
 
@@ -219,9 +259,39 @@ renderProducts(products);
         <span class="membership-period">/${p.period}</span>
       </article>
     `).join("");
+    
   }
 
   renderPlans(plans);
 })();
 
 // ================== Membership plans ==================
+
+// ================== Buy Now -> How to buy ==================
+
+const allProducts = [...products, ...supplements]
+const WHATSAPP_NUMBER = "201223438049"   // كود مصر 20 + الرقم من غير الصفر ومن غير +
+
+const buyProduct = document.querySelector("#buy-product")
+const buyWhats = document.querySelector("#buy-whatsapp")
+let backSection = clothesSection
+
+function openBuy(id) {
+    const p = allProducts.find(item => item.id === id)
+    if (!p) return
+
+    buyProduct.textContent = `You are ordering: ${p.name} - EGP ${p.price.toLocaleString("en-US")}`
+
+    const msg = `Hello Dragon Gym, I want to order: ${p.name} (EGP ${p.price})`
+    buyWhats.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg)
+
+    backSection = p.category === "clothes" ? clothesSection : supSec
+    showSection(buySec)
+}
+
+document.addEventListener("click", function (e) {
+    const btn = e.target.closest(".buy-btn")
+    if (btn) openBuy(btn.dataset.id)
+})
+
+document.querySelector("#buy-back").addEventListener("click", () => showSection(backSection))
