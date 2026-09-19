@@ -167,7 +167,7 @@ const products = [
   { name: "Training Shorts",     image: "IMGS/clothes.webp",        details: "Lightweight, quick dry",              price: 350 },
   { name: "Dragon Hoodie",       image: "IMGS/clothes1.webp",        details: "Soft fleece, warm and comfortable",   price: 900 },
   { name: "Tank Top",            image: "IMGS/clothes.webp",          details: "Sleeveless, ideal for heavy lifting", price: 300 },
-  { name: "Compression Shirt",   image: "IMGS/clothes1.webp",   details: "Stretch fit, supports movement",      price: 650 },
+  { name: "brand elataba",   image: "IMGS/clothes1.webp",   details: "Stretch fit, supports movement",      price: 650 },
   { name: "Joggers",             image: "IMGS/clothes.webp",       details: "Tapered fit with zip pockets",        price: 750 },
   { name: "Gym Cap",             image: "IMGS/clothes1.webp",           details: "Adjustable strap, one size",          price: 200 },
 ];
@@ -280,10 +280,12 @@ function openBuy(id) {
     const p = allProducts.find(item => item.id === id)
     if (!p) return
 
-    buyProduct.textContent = `You are ordering: ${p.name} - EGP ${p.price.toLocaleString("en-US")}`
+            currentProduct = p
+    updateBuyText()
+    // buyProduct.textContent = `You are ordering: ${p.name} - EGP ${p.price.toLocaleString("en-US")}`
 
-    const msg = `Hello Dragon Gym, I want to order: ${p.name} (EGP ${p.price})`
-    buyWhats.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg)
+    // const msg = `Hello Dragon Gym, I want to order: ${p.name} (EGP ${p.price})`
+    // buyWhats.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg)
 
     backSection = p.category === "clothes" ? clothesSection : supSec
     showSection(buySec)

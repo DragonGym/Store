@@ -1,0 +1,70 @@
+/* ==========================================================
+   Language button + Arabic (RTL)
+   ========================================================== */
+
+/* ---------- زرار اللغة في الهيدر ---------- */
+.lang-btn{
+    margin-inline: auto 14px;   /* بيزق الزرار والهامبورجر لآخر الهيدر (ويتقلب لوحده في RTL) */
+    padding: 7px 14px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--main-color);
+    background: transparent;
+    border: 1px solid var(--main-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color .3s ease, color .3s ease;
+}
+.lang-btn:hover{
+    color: #fff;
+    background-color: var(--main-color);
+}
+
+/* ---------- الخط العربي ---------- */
+/* الأيقونات (i) مش متضافة هنا عشان Font Awesome ماتبوظش */
+[lang="ar"] body,
+[lang="ar"] button,
+[lang="ar"] h1,
+[lang="ar"] h2,
+[lang="ar"] h3,
+[lang="ar"] h4,
+[lang="ar"] p,
+[lang="ar"] a,
+[lang="ar"] span,
+[lang="ar"] li,
+[lang="ar"] address{
+    font-family: "Cairo", sans-serif;
+}
+
+/* العربي مالوش italic ولا letter-spacing (بيقطّع الحروف المتصلة) */
+[lang="ar"] *{
+    font-style: normal !important;
+    letter-spacing: 0 !important;
+}
+
+/* ---------- تظبيطات RTL ---------- */
+[dir="rtl"] .footer h4::after{
+    left: auto;
+    right: 0;
+}
+[dir="rtl"] .footer-links a:hover{
+    padding-left: 0;
+    padding-right: 6px;
+}
+[dir="rtl"] .choose .text1 span{
+    margin-left: 0;
+    margin-right: 12px;
+}
+
+@media (min-width: 769px){
+    [dir="rtl"] .choose .boxse .text{
+        text-align: right;
+    }
+}
+
+@media (max-width: 480px){
+    [dir="rtl"] .footer-links a:hover{
+        padding-right: 0;
+    }
+}

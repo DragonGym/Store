@@ -1695,3 +1695,20 @@ color: var(--main-color);
     color: #fff;
     background-color: var(--main-color);
 }
+/* اللوجو يفضل زي ما هو في اللغتين */
+[dir="rtl"] .gym-name{
+    direction: ltr;
+}
+
+/* المنيو تفتح تحت الهامبورجر (اللي بقى على الشمال) */
+[dir="rtl"] .menu-bar{
+       right: auto;
+    left: 61px;
+    top: 80px;
+}
+
+/* زرار الإغلاق ينتقل للشمال عشان مايغطيش الأيقونة */
+[dir="rtl"] .close-btn{
+    right: auto;
+    left: 15px;
+}
