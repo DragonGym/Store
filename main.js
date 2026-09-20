@@ -25,90 +25,45 @@ let salSec = document.querySelector("#sal-sec")
 let buySec = document.querySelector("#buy-sec")
 
 let salbtn1 = document.querySelector("#sal-btn1")
-
-
-// clothes.addEventListener("click", function() {
-
-//     clothesSection.style.display="block"
-//     home.style.display = "none";
-//     aboutsecsion.style.display="none";
-//     supSec.style.display="none"
-//     salSec.style.display="none"
-//     menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
-//     window.scrollTo(0, 0)
-
-// });
-
-// homeBtn.addEventListener("click", function() {
-
-//     home.style.display = "block";
-//     aboutsecsion.style.display="none";
-//     clothesSection.style.display="none";
-//     supSec.style.display="none"
-//     salSec.style.display="none"
-//     menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
-//     window.scrollTo(0, 0)
-// });
-
-// aboutbtn.addEventListener("click",function(){
-//     aboutsecsion.style.display="block"
-//     home.style.display="none"
-//     clothesSection.style.display="none"
-//     supSec.style.display="none"
-//     salSec.style.display="none"
-//     menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
-//     window.scrollTo(0, 0)
-// })
-// clothesViewBtn.addEventListener("click",function(){
-//     clothesSection.style.display="block"
-//      home.style.display = "none";
-//     aboutsecsion.style.display="none";
-//     supSec.style.display="none"
-//     salSec.style.display="none"
-//     menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
-//     window.scrollTo(0, 0)
-// })
-// supBtn.addEventListener("click",function(){
-//     supSec.style.display="block"
-//     aboutsecsion.style.display="none"
-//     home.style.display="none"
-//     clothesSection.style.display="none"
-//     salSec.style.display="none"
-//     menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
-//     window.scrollTo(0, 0)
-// })
-// supBtn1.addEventListener("click",function(){
-//     supSec.style.display="block"
-//     aboutsecsion.style.display="none"
-//     home.style.display="none"
-//     clothesSection.style.display="none"
-//     salSec.style.display="none"
-//     menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
-//     window.scrollTo(0, 0)
-// })
-// salBtn.addEventListener("click",function(){
-//       supSec.style.display="none"
-//     aboutsecsion.style.display="none"
-//     home.style.display="none"
-//     clothesSection.style.display="none"
-//     salSec.style.display="block"
-//     menu.style.display = "none"      // يقفل المنيو بعد الاختيار (اختياري، امسحه لو مش عايزه)
-//     window.scrollTo(0, 0)
-// })
-
-// const goMap = { home: home, clothes: clothesSection, supplements: supSec, salary: salSec, about: aboutsecsion }
-// document.querySelectorAll("[data-go]").forEach(link => {
-//     link.addEventListener("click", () => showSection(goMap[link.dataset.go]))
-// })
-
+// ===============================================
 const sections = [home, aboutsecsion, clothesSection, supSec, salSec, buySec].filter(Boolean)
 
-function showSection(sec) {
+// ====================================
+const routes = {
+    home: home,
+    clothes: clothesSection,
+    supplements: supSec,
+    membership: salSec,
+    about: aboutsecsion,
+    buy: buySec
+}
+
+// بتعرض السيكشن اللي في الـ hash الحالي
+function renderRoute() {
+    const name = location.hash.slice(1).toLowerCase()
+    const sec = routes[name] || home
+
     sections.forEach(s => s.style.display = "none")
     sec.style.display = "block"
     menu.style.display = "none"
     window.scrollTo(0, 0)
 }
+
+// الاسم زي ما هو، فكل الأماكن اللي بتناديها (المنيو والفوتر وBack وBuy Now) شغالة من غير تعديل
+function showSection(sec) {
+    const name = Object.keys(routes).find(key => routes[key] === sec)
+
+    if (location.hash.slice(1).toLowerCase() === name) renderRoute()
+    else location.hash = name
+}
+// ====================================
+
+// function showSection(sec) {
+//     sections.forEach(s => s.style.display = "none")
+//     sec.style.display = "block"
+//     menu.style.display = "none"
+//     window.scrollTo(0, 0)
+// }
 
 // أزرار المنيو وأزرار View More في الرئيسية
 clothes.addEventListener("click", () => showSection(clothesSection))
@@ -297,3 +252,7 @@ document.addEventListener("click", function (e) {
 })
 
 document.querySelector("#buy-back").addEventListener("click", () => showSection(backSection))
+
+
+window.addEventListener("hashchange", renderRoute)
+renderRoute()
