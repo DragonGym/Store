@@ -164,12 +164,12 @@ document.addEventListener("click", function(e){
 const products = [
   { name: "Dragon T-Shirt",      image: "IMGS/clothes.webp",  details: "Breathable fabric, slim fit",         price: 500 },
   { name: "Dragon T-Shirt",      image: "IMGS/clothes1.webp",  details: "Breathable fabric, regular fit",      price: 500 },
-  { name: "Training Shorts",     image: "IMGS/clothes.webp",        details: "Lightweight, quick dry",              price: 350 },
-  { name: "Dragon Hoodie",       image: "IMGS/clothes1.webp",        details: "Soft fleece, warm and comfortable",   price: 900 },
-  { name: "Tank Top",            image: "IMGS/clothes.webp",          details: "Sleeveless, ideal for heavy lifting", price: 300 },
-  { name: "brand elataba",   image: "IMGS/clothes1.webp",   details: "Stretch fit, supports movement",      price: 650 },
-  { name: "Joggers",             image: "IMGS/clothes.webp",       details: "Tapered fit with zip pockets",        price: 750 },
-  { name: "Gym Cap",             image: "IMGS/clothes1.webp",           details: "Adjustable strap, one size",          price: 200 },
+  { name: "Training Shorts",     image: "IMGS/clothes/men-s-breathable-lightweight-cross-training-performance-shorts-celliant-grey.jpg",        details: "Lightweight, quick dry",              price: 350 },
+  { name: "Dragon Hoodie",       image: "IMGS/clothes/images.jfif",        details: "Soft fleece, warm and comfortable",   price: 900 },
+  { name: "Tank Top",            image: "IMGS/clothes/1716881855158-df9e0f5105aa47bc874ee5bda4648155-goods.avif",          details: "Sleeveless, ideal for heavy lifting", price: 300 },
+  { name: "Dragon Hoodie",   image: "IMGS/clothes/hodie.avif",   details: "Stretch fit, supports movement",      price: 650 },
+  { name: "Joggers",             image: "IMGS/clothes/jeans.avif",       details: "Tapered fit with zip pockets",        price: 750 },
+  { name: "Gym Cap",             image: "IMGS/clothes/gym cap.avif",           details: "Adjustable strap, one size",          price: 200 },
 ];
 products.forEach((p, i) => { p.id = "c" + (i + 1); p.category = "clothes" })
 const list = document.querySelector("#clothes-list");
@@ -202,12 +202,12 @@ renderProducts(products);
   const supplements = [
     { name: "Whey Protein",        image: "IMGS/cookiescream.jpg.webp",        details: "Fast-absorbing protein for muscle recovery", price: 3000 },
     { name: "Crea-Power Creatine", image: "IMGS/Crea-Power-Creatine-400-g-80-Servings_1.jpg.webp",    details: "Supports strength and power output",         price: 1500 },
-    { name: "BCAA",                image: "IMGS/cookiescream.jpg.webp",        details: "Amino acids to support recovery",            price: 900 },
-    { name: "Pre-Workout",         image: "IMGS/Crea-Power-Creatine-400-g-80-Servings_1.jpg.webp", details: "Energy and focus before training",           price: 1100 },
-    { name: "Mass Gainer",         image: "IMGS/cookiescream.jpg.webp", details: "High-calorie formula for building size",     price: 2400 },
-    { name: "Casein Protein",      image: "IMGS/Crea-Power-Creatine-400-g-80-Servings_1.jpg.webp",      details: "Slow-release protein, ideal before sleep",   price: 2800 },
-    { name: "Omega-3",             image: "IMGS/cookiescream.jpg.webp",     details: "Daily support for heart and joints",         price: 600 },
-    { name: "Multivitamin",        image: "IMGS/Crea-Power-Creatine-400-g-80-Servings_1.jpg.webp",details: "Daily vitamins and minerals",                price: 450 },
+    { name: "BCAA",                image: "IMGS/SUP/eaa-bcaa-lemon-2.png",        details: "Amino acids to support recovery",            price: 900 },
+    { name: "Pre-Workout",         image: "IMGS/SUP/ABE-CANDY.jpg", details: "Energy and focus before training",           price: 1100 },
+    { name: "Mass Gainer",         image: "IMGS/SUP/serious-mass-choco-1.png", details: "High-calorie formula for building size",     price: 2400 },
+    { name: "Casein Protein",      image: "IMGS/SUP/Dymatize-fruity-pebbles-3lbs.png",      details: "Slow-release protein, ideal before sleep",   price: 2800 },
+    { name: "Omega-3",             image: "IMGS/SUP/Omega-1.png",     details: "Daily support for heart and joints",         price: 600 },
+    { name: "Multivitamin",        image: "IMGS/SUP/LIMITLESS-MAN-MAX-100-TAB-1.png",details: "Daily vitamins and minerals",                price: 450 },
   ];
 supplements.forEach((p, i) => { p.id = "s" + (i + 1); p.category = "supplements" })
   const supplementsList = document.querySelector("#supplements-list");

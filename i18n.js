@@ -11,7 +11,7 @@ const translations = {
   "SUPPLEMENTS": "المكملات",
   "Fuel your performance": "غذّي أداءك",
   "SALARY": "الاشتراكات",
-  "View salary plans": "شاهد خطط الاشتراك",
+  "View membership plans": "شاهد خطط الاشتراك",
   "ABOUT US": "من نحن",
   "Know more about us": "تعرّف علينا أكثر",
 
