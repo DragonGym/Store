@@ -1704,7 +1704,9 @@ color: var(--main-color);
 [dir="rtl"] .gym-name{
     direction: rtl;
 }
-
+[dir="rtl"] .hero-image{
+    direction: ltr;
+}
 /* المنيو تفتح تحت الهامبورجر (اللي بقى على الشمال) */
 [dir="rtl"] .menu-bar{
        right: auto;

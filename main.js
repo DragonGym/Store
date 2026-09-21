@@ -26,6 +26,20 @@ let buySec = document.querySelector("#buy-sec")
 
 let salbtn1 = document.querySelector("#sal-btn1")
 // ===============================================
+
+
+// أزرار المنيو وأزرار View More في الرئيسية
+clothes.addEventListener("click", () => showSection(clothesSection))
+homeBtn.addEventListener("click", () => showSection(home))
+aboutbtn.addEventListener("click", () => showSection(aboutsecsion))
+clothesViewBtn.addEventListener("click", () => showSection(clothesSection))
+supBtn.addEventListener("click", () => showSection(supSec))
+supBtn1.addEventListener("click", () => showSection(supSec))
+salBtn.addEventListener("click", () => showSection(salSec))
+salbtn1.addEventListener("click",() => showSection(salSec))
+
+
+
 const sections = [home, aboutsecsion, clothesSection, supSec, salSec, buySec].filter(Boolean)
 
 // ====================================
@@ -56,25 +70,6 @@ function showSection(sec) {
     if (location.hash.slice(1).toLowerCase() === name) renderRoute()
     else location.hash = name
 }
-// ====================================
-
-// function showSection(sec) {
-//     sections.forEach(s => s.style.display = "none")
-//     sec.style.display = "block"
-//     menu.style.display = "none"
-//     window.scrollTo(0, 0)
-// }
-
-// أزرار المنيو وأزرار View More في الرئيسية
-clothes.addEventListener("click", () => showSection(clothesSection))
-homeBtn.addEventListener("click", () => showSection(home))
-aboutbtn.addEventListener("click", () => showSection(aboutsecsion))
-clothesViewBtn.addEventListener("click", () => showSection(clothesSection))
-supBtn.addEventListener("click", () => showSection(supSec))
-supBtn1.addEventListener("click", () => showSection(supSec))
-salBtn.addEventListener("click", () => showSection(salSec))
-salbtn1.addEventListener("click",() => showSection(salSec))
-
 
 // لينكات الفوتر
 const goMap = { home: home, clothes: clothesSection, supplements: supSec, salary: salSec, about: aboutsecsion }
